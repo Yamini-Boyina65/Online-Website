@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="stylesheets.css" />
+    <script type="text/javascript">
+      function validateInputs() {
+        const fn = document.getElementById("firstname");
+        console.log("First Name:" + fn.value);
+        const ln = document.getElementById("lastname");
+        console.log("Last Name" + ln.value);
+        const p = document.getElementById("password");
+        console.log("Password" + p.value);
+        const em = document.getElementById("email");
+        console.log("Email" + em.value);
+        const mn = document.getElementById("number");
+        console.log("Mobile Number" + mn.value);
+        const ad = document.getElementById("address");
+        console.log("Address" + ad.value);
+        const pl = document.getElementById("place");
+        console.log("Locality" + pl.value);
+
+        if (fn.value.length < 4) {
+          alert("First name is required...");
+          fn.focus();
+          return false;
+        }
+        if (ln.value.length < 4) {
+          alert("Last name is required...");
+          ln.focus();
+          return false;
+        }
+        if (em.value.length <= 0) {
+          alert("Email is required...");
+          em.focus();
+          return false;
+        }
+        if (mn.value.length != 10) {
+          alert("Mobile Number is required...");
+          mn.focus();
+          return false;
+        }
+        if (ad.value.length <= 0) {
+          alert("Address is required...");
+          ad.focus();
+          return false;
+        }
+        if (pl.value.length <= 0) {
+          alert("Locality is required...");
+          pl.focus();
+          return false;
+        }
+        return false;
+      }
+      function validateFirstName() {
+        const element = document.getElementById(id);
+        const re = /^[a-zA-z ]+$/;
+        if (!re.test(element.value)) {
+          alert("First name must be string only..");
+          element.style.border = "2px solid #ff0012";
+          return false;
+        }
+        element.style.border = "2px solid #5dfbdf";
+      }
+      function validateLastName() {
+        const element = document.getElementById(id);
+        const re = /^[a-zA-z ]+$/;
+        if (!re.test(element.value)) {
+          alert("Last name must be string only..");
+          element.style.border = "2px solid #ff0012";
+          return false;
+        }
+        element.style.border = "2px solid #5dfbdf";
+      }
+      function validateEmail() {
+        const element = document.getElementById(id);
+        const re = /^[a-zA-z0-9._]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,4}$/;
+        if (!re.test(element.value)) {
+          alert("Enter vaild email..");
+          element.style.border = "2px solid #ff0012";
+          return false;
+        }
+        element.style.border = "2px solid #5dfbdf";
+      }
+      function validateMobileNumber() {
+        const element = document.getElementById(id);
+        const re = /^[0-9]{10}$/;
+        if (!re.test(element.value)) {
+          alert("Enter 10 digit mobile no. ");
+          element.style.border = "2px solid #ff0012";
+          return false;
+        }
+        element.style.border = "2px solid #5dfbdf";
+      }
+      function validateAddress() {
+        const element = document.getElementById(id);
+        const re = /^[a-zA-Z0-9 _/.,]+$/;
+        if (!re.test(element.value)) {
+          alert("Enter your Address");
+          element.style.border = "2px solid #ff0012";
+          return false;
+        }
+        element.style.border = "2px solid #5dfbdf";
+      }
+      function validateLocality() {
+        const element = document.getElementById(id);
+        const re = /^[a-zA-Z0-9 _/.,]+$/;
+        if (!re.test(element.value)) {
+          alert("Enter your Locality");
+          element.style.border = "2px solid #ff0012";
+          return false;
+        }
+        element.style.border = "2px solid #5dfbdf";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="mainbox">
+      <form
+        class="my-fomrs"
+        name="section"
+        action=""
+        method=""
+        onsubmit="return validateInputs()"
+      >
+        <div id="form" onclick="submit">
+          <h1>Login Page</h1>
+          <div class="myforms">
+            <label>First Name</label>
+            <input
+              id="firstname"
+              type="text"
+              name="name"
+              onblur="validateFirstName(this.id)"
+              placeholder="Enter your first name"
+            />
+          </div>
+          <div class="myforms">
+            <label>Last Name</label>
+            <input
+              id="lastname"
+              type="text"
+              name="name"
+              onblur="validateLastName(this.id)"
+              placeholder="Enter your last name"
+            />
+          </div>
+          <div class="myforms">
+            <label>Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              onblur="validatePassword(this.id"
+              )
+              placeholder="Enter password"
+            />
+          </div>
+          <div class="myforms">
+            <label>Email</label>
+            <input
+              id="email"
+              type="text"
+              name="email"
+              onblur="validateEmail(this.id)"
+              placeholder="Enter email address"
+            />
+          </div>
+          <div class="myforms">
+            <label>Mobile Number</label>
+            <input
+              id="number"
+              name="number"
+              type="number"
+              onblur="validateMobileNumber(this.id)"
+              placeholder="Enter 10 digit number"
+            />
+          </div>
+          <div class="myforms">
+            <label>Address</label>
+            <textarea
+              id="address"
+              type="text"
+              name="address"
+              onblur="validateAddress(this.id)"
+              placeholder="Enter your work or home address"
+            ></textarea>
+          </div>
+          <div class="myforms">
+            <label>Locality</label>
+            <input
+              id="place"
+              type="text"
+              name="place"
+              onblur="validateLocality(this.id)"
+              placeholder="Enter your locality"
+            />
+          </div>
+          <button>SUBMIT</button>
+          <button>RESET</button>
+        </div>
+      </form>
+      <ul>
+        <center>
+          <button>
+            <a href="C:\Users\boyin\OneDrive\Desktop\Web\Shopping\shopping.html"
+              >Home</a
+            >
+          </button>
+        </center>
+      </ul>
+    </div>
+  </body>
+</html>
